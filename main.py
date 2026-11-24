@@ -16,11 +16,15 @@ PITCH = (
 )
 
 
+def write_pitch(output_path: str) -> None:
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(PITCH)
+
+
 def main() -> None:
     output_dir = os.environ.get("OUTPUT_DIR", "/output")
     os.makedirs(output_dir, exist_ok=True)
-    with open(os.path.join(output_dir, "entry.txt"), "w", encoding="utf-8") as f:
-        f.write(PITCH)
+    write_pitch(os.path.join(output_dir, "entry.txt"))
 
 
 if __name__ == "__main__":
